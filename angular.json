@@ -125,6 +125,46 @@
           }
         }
       }
+    },
+    "ng-input-img-previewer": {
+      "projectType": "library",
+      "root": "projects/ng-input-img-previewer",
+      "sourceRoot": "projects/ng-input-img-previewer/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ng-input-img-previewer/tsconfig.lib.json",
+            "project": "projects/ng-input-img-previewer/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-input-img-previewer/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-input-img-previewer/src/test.ts",
+            "tsConfig": "projects/ng-input-img-previewer/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-input-img-previewer/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-input-img-previewer/tsconfig.lib.json",
+              "projects/ng-input-img-previewer/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ng-input-previewer"
